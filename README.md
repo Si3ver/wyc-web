@@ -1,29 +1,20 @@
-# wyc-web
+# 网约车web端
 
-## Project setup
-```
-npm install
-```
+> 本项目是一个区块链项目的前端部分~
 
-### Compiles and hot-reloads for development
-```
+**技术选型**
++ vue.js
++ 前端路由: vue-router, 前端路由表 src/routes.js
++ UI框架: ant-design-vue
++ CSS预处理器: less
++ 前后端分离: /mock/path1_path2_path3.js
++ 请求封装: src/utils/request.js
+
+**其他说明**
++ webpack-dev-server的 proxy 配置见 vue.config.js
+
+**本地运行（使用Mock数据）**
 npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**使用线上数据**
+npm run serve:no-mock
