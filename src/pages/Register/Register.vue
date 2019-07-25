@@ -1,6 +1,9 @@
 <template>
   <div>
-    用户注册
+    <a-form
+      :form="form"
+      @submit="handleSubmit"
+    ></a-form>
   </div>
 </template>
 
@@ -11,4 +14,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
 </style>
