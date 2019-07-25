@@ -1,19 +1,22 @@
 <template>
-  <div id="app">
-    <router-view :isLogin="isLogin"></router-view>
+  <div>
+    <h1>积分流水</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'Stream',
   data () {
     return {
-      isLogin: false
     }
+  },
+  methods: {
+  },
+  mounted () {
   }
 }
 </script>
 
-<style>
+<style scoped>
 </style>

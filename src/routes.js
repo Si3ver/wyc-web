@@ -1,15 +1,21 @@
 import Home from './pages/Home/Home'
-import City from './pages/City/City'
+import Stream from './pages/Stream/Stream'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import User from './pages/User/User'
 import Qualauth from './pages/Qualauth/Qualauth'
+import Union from './pages/Union/Union'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/stream',
+    name: 'Stream',
+    component: Stream
   },
   {
     path: '/login',
@@ -22,11 +28,6 @@ const routes = [
     component: Register
   },
   {
-    path: '/city',
-    name: 'City',
-    component: City
-  },
-  {
     path: '/user',
     name: 'User',
     component: User
@@ -35,6 +36,11 @@ const routes = [
     path: '/qualauth',
     name: 'Qualauth',
     component: Qualauth
+  },
+  {
+    path: '/union',
+    name: 'Union',
+    component: Union
   }
 ]
 

@@ -1,12 +1,18 @@
 <template>
   <div class="login-pannel">
 
+    <router-link to='/'>
+      <div class="close-btn">
+        <a-icon type="close" />
+      </div>
+    </router-link>
+
     <div class="avatar">
       <a-avatar :size="64" icon="user" />
     </div>
 
     <div class="usertel-box">
-      <a-input placeholder="请输入您的手机号" v-model="usertel" ref="usertelInput" style= "background-color:transparent;border:0;"> 
+      <a-input placeholder="请输入您的手机号" v-model="usertel" ref="usertelInput"> 
         <a-icon slot="prefix" type="user" />
         <a-icon v-if="usertel" slot="suffix" type="close-circle" @click="emittelEmpty" />
       </a-input>
@@ -15,19 +21,16 @@
         <a-icon v-if="userpwd" slot="suffix" type="close-circle" @click="emitpwdEmpty" />
       </a-input>
     </div>
-    <div class="login-button">
-      <a-button type="primary" style="background-color: #ff005c59; border-color: #ffffff; width: 22rem;
-        margin-left: 3%; position: relative; top: 15px;">登录</a-button>
-    </div>
-    
+
+    <router-link to='/'>
+      <a-button class="login-btn" @click=handleLogin>登录</a-button>
+    </router-link>
 
     <div class="links-box">
       <router-link to="register">注册</router-link> | 
       <router-link to="#">忘记密码</router-link> | 
       <router-link to="#">遇到问题</router-link>
     </div>
-
-    <!-- <div class="platform-box"></div>  暂时不要  -->
 
   </div>
 </template>
@@ -50,44 +53,32 @@ export default {
       this.$refs.userpwdInput.focus()
       this.userpwd = ''
     },
+    handleLogin () {
+      this.$attrs.isLogin = true
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
 .login-pannel {
-
-  // .usertel-box{
-  //   background-color:transparent;
-  //   border:0;
-  // }
-   .avatar {
-
-     margin:84px auto 44px;
-     width:64px;
-     
-   }
-  .components-input-demo-presuffix .anticon-close-circle {
-    cursor: pointer;
-    color: #ccc;
-    transition: color 0.3s;
-    font-size: 12px;
+  // background: #efefef;
+  .close-btn {
+    margin-top: .5rem;
+    margin-left: .5rem;
   }
- // .components-input-demo-presuffix .anticon-close-circle:hover {
- //   color: #999;
- // }
- // .components-input-demo-presuffix .anticon-close-circle:active {
- //   color: #666;
- // }
- 
-
-  
+  .avatar {
+    margin: .5rem auto .88rem;
+    width: 1.28rem;
+  }
+  .login-btn {
+    color: #fff;
+    background-color:rgba(249, 127, 126, 1);
+    margin: 3% .2rem;
+    width: 94%;
+  }
   .links-box{
-    position: relative;
-    //margin-left: 6rem;
     text-align:center;
-    top: 2rem;
-    
   }
 }
 </style>
