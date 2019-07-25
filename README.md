@@ -14,7 +14,11 @@
 + webpack-dev-server的 proxy 配置见 vue.config.js
 
 **本地运行（使用Mock数据）**
+```bash
 npm run serve
+```
 
 **使用线上数据**
+```bash
 npm run serve:no-mock
+```

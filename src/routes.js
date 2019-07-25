@@ -1,11 +1,17 @@
 import Home from './pages/Home/Home'
 import City from './pages/City/City'
+import Register from './pages/Register/Register'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   },
   {
     path: '/city',

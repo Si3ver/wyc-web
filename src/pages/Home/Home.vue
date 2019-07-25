@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>主页</h1>
+    <home-header></home-header>
+    <h1>注册</h1>
+    <a-button type="primary">Button</a-button>
     <p>{{ msg }}</p>
     <router-link to="City">路由测试</router-link>
   </div>
@@ -8,6 +10,7 @@
 
 <script>
 import request from './../../utils/request'
+import HomeHeader from './components/Header'
 
 export default {
   name: 'Home',
@@ -19,7 +22,7 @@ export default {
   methods: {
     getData () {
       request({
-        url: '/api/test/string',
+        url: '/test/string',
         method: 'get',
         params: { }
       }).then(response => {
@@ -29,6 +32,9 @@ export default {
   },
   mounted () {
     this.getData()
+  },
+  components: {
+    HomeHeader
   }
 }
 </script>
