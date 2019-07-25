@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <router-link to='/register'>
+      <router-link to='/login'>
         <a-icon type="user" />
       </router-link>
     </div>

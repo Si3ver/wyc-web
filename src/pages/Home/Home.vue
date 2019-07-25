@@ -1,7 +1,7 @@
 <template>
   <div>
     <home-header></home-header>
-    <h1>注册</h1>
+    <h1>主页</h1>
     <a-button type="primary">Button</a-button>
     <p>{{ msg }}</p>
     <router-link to="City">路由测试</router-link>
@@ -40,4 +40,6 @@ export default {
 </script>
 
 <style scoped>
+@import '~styles/variables.less'
+
 </style>
