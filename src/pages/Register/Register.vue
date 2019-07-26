@@ -214,6 +214,7 @@ export default {
         if (!err) {
           // eslint-disable-next-line no-console
           console.log('Received values of form: ', values);
+          this.$router.push('/qualauth')
         }
       });
     },

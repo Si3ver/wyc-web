@@ -25,10 +25,12 @@
     </div>
 
     <div class="other">
-      <div class="knapack">
-        <div class="logo"></div>
-        我的背包
-      </div>
+      <router-link to="/knapsack">
+        <div class="knapack">
+          <div class="logo"></div>
+          我的背包
+        </div>
+      </router-link>
       <div class="rights">
         <div class="logo"></div>
         专属权益

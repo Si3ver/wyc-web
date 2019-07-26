@@ -41,6 +41,11 @@ export default {
       } else {
         this.$message.success('兑换成功!');
         this.$emit("consumePoints", this.nums * this.good.price)
+        // 增加背包中的商品数量
+        let purc = localStorage.getItem('purchasedGoods').split(',').map(item=>Number(item))
+        purc[Number(this.good.id)] += this.nums
+        localStorage.setItem('purchasedGoods', purc)
+        // 清零
         this.nums = 0
       }
     }

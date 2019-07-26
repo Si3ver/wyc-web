@@ -5,6 +5,7 @@ import Register from './pages/Register/Register'
 import User from './pages/User/User'
 import Qualauth from './pages/Qualauth/Qualauth'
 import Union from './pages/Union/Union'
+import Knapsack from './pages/Knapsack/Knapsack'
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
     path: '/union',
     name: 'Union',
     component: Union
+  },
+  {
+    path: '/knapsack',
+    name: 'Knapsack',
+    component: Knapsack
   }
 ]
 

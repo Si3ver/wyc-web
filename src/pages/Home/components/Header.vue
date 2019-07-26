@@ -1,13 +1,13 @@
 <template>
   <div class="header">
     <div class="header-user">
-      <router-link :to="this.isLogin ? '/user' : '/login'">
+      <router-link :to="this.target">
         <a-icon type="user" />
       </router-link>
     </div>
     <div class="header-points">
       <router-link to='/stream'>
-        $ {{ points }}
+        {{ points }} 积分
       </router-link>
     </div>
     <div class="header-input">
@@ -29,6 +29,20 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data () {
+    return {
+      target: '/user'
+    }
+  },
+  mounted () {
+    setInterval(this.loop, 1000)
+  },
+  methods: {
+    // loop () {
+    //   let state = localStorage.getItem('hasLogin')
+    //   this.target = (state===true) ? '/user' : '/login'
+    // }
   }
 }
 </script>

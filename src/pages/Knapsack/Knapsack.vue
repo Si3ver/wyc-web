@@ -1,34 +1,31 @@
 <template>
-  <div>
-    <home-header :points="points" :isLogin="isLogin"></home-header>
-    <carrousel></carrousel>
-    <div class="goods-pannel">
-      <good v-for="(good, idx) in goods" :key="idx" :good="good" :points="points" @consumePoints="consumePoints"></good>
-    </div>
+  <div class="knap-pannel">
+    我的背包
+    {{ this.purc }}
+
+    <good-item
+      v-for="(good, item) in goods"
+      :key="item"
+      :name="good.name"
+      :img="good.url"
+      :nums="purc[item]"
+    ></good-item>
+
+    <router-link to="/">返回主页</router-link>
   </div>
 </template>
 
 <script>
-import HomeHeader from './components/Header'
-import Carrousel from './components/Carrousel'
-import Good from './components/Good'
+import GoodItem from './Components/GoodItem'
 
 export default {
-  name: 'Home',
+  name: 'Knapsack',
   components: {
-    HomeHeader,
-    Carrousel,
-    Good,
-  },
-  props: {
-    isLogin: {
-      type: Boolean,
-      default: false
-    }
+    GoodItem
   },
   data () {
     return {
-      points: 150,
+      purc: [],
       goods: [{
         id: '0000',
         url: "https:////img.alicdn.com/img/i2/117239780/O1CN01wyvtP22M7I21Zx3uI_!!0-saturn_solar.jpg_210x210.jpg",
@@ -52,17 +49,16 @@ export default {
       }]
     }
   },
+  props: {
+  },
   methods: {
-    consumePoints (usedPoints) {
-      this.points = this.points - usedPoints
-    }
+    
   },
   mounted () {
-    localStorage.setItem('hasLogin', true)
-    localStorage.setItem('purchasedGoods', [0, 0, 0, 0])
+    this.purc = localStorage.getItem('purchasedGoods').split(',').map(item=>Number(item))
   }
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 </style>
