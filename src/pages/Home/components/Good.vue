@@ -17,6 +17,9 @@
 </template>
 
 <script>
+// import request from './../../../utils/request'
+import axios from 'axios'
+
 export default {
   name: "Good",
   props: {
@@ -41,10 +44,36 @@ export default {
       } else {
         this.$message.success('兑换成功!');
         this.$emit("consumePoints", this.nums * this.good.price)
+
+        // POST请求
+        // request ({
+        //   url: '/api/driver/item',
+        //   methods: 'post',
+        //   data: {
+        //     driverId: 3,
+        //     itemId: this.good.id,
+        //     num: this.nums
+        //   }
+        // }).then(response => {
+        //   this.points = Number(response.data.data)
+        // })
+        axios.post('/api/driver/item', {
+          driverId: 3,
+          itemId: this.good.id,
+          num: this.nums
+        })
+
         // 增加背包中的商品数量
         let purc = localStorage.getItem('purchasedGoods').split(',').map(item=>Number(item))
-        purc[Number(this.good.id)] += this.nums
+        purc[Number(this.good.id-1)] += this.nums
         localStorage.setItem('purchasedGoods', purc)
+        // 增加一条购买记录
+        let records = JSON.parse(localStorage.getItem('purchaseRecords'))
+        records.push({
+          id: this.good.id,
+          num: this.nums
+        })
+        localStorage.setItem('purchaseRecords', JSON.stringify(records))
         // 清零
         this.nums = 0
       }

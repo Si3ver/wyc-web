@@ -11,6 +11,11 @@ export default {
     return {
       isLogin: false
     }
+  },
+  mount () {
+    localStorage.setItem('hasLogin', true)
+    localStorage.setItem('purchasedGoods', '0,0,0,0')
+    localStorage.setItem('purchaseRecords', '[]')
   }
 }
 </script>

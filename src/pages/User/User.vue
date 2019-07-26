@@ -24,8 +24,8 @@
 
     <div class="points-box">
       <div class="my-points-header">我的积分</div>
-      <div class="points">{{ userinfo.points }}</div>
-      <div class="tip">上述积分数据可能会存在滞后情况，请刷新重试</div>
+      <div class="points">{{ points }}</div>
+      <div class="tip">上述积分数据可能会存在滞后情况，请刷新</div>
     </div>
 
     <div class="other">
@@ -45,23 +45,24 @@
       </div>
     </div>
 
-    <router-link to='/'>
+    <!-- <router-link to='/'>
       <a-button class="login-btn" @click=handleLogout>退出登录</a-button>
-    </router-link>
+    </router-link> -->
 
   </div>
 </template>
 
 <script>
+import request from './../../utils/request'
 export default {
   data () {
     return {
+      points: 600,
       userinfo: {
         name: "用户A",
         tel: "17512341234",
         lastLoginTime: '2019-07-25 16:45:09',
-        stars: 4.5,
-        points: 12888
+        stars: 4.5
       }
     }
   },
@@ -72,7 +73,19 @@ export default {
       this.$attrs.isLogin = false
       // eslint-disable-next-line no-console
       console.log("agc")
+    },
+    getPoints () {
+      request ({
+        url: '/api/deploy/point/34',
+        methods: 'get',
+        params: {}
+      }).then(response => {
+        this.points = Number(response.data.data)
+      })
     }
+  },
+  mounted () {
+    this.getPoints()
   }
 }
 </script>

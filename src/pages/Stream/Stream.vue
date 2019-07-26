@@ -1,92 +1,82 @@
 <template>
   <div class="stream-pannel">
-  <a-card
-  hoverable
-  style="width: 100%"
-  >
-  <img
-    alt="example"
-    src="https://image1.guazistatic.com/qn19072611035465662bf64819c468b74991a087832293.jpg?imageView2/2"
-    slot="cover"
-  />
-  <a-card-meta
-    title="您的积分账户余额">
-    <template slot="description"> {{ points }} </template>
-  </a-card-meta>
-  </a-card>
+    
+    <a-card hoverable style="width: 100%">
+      <img src="https://image1.guazistatic.com/qn19072611035465662bf64819c468b74991a087832293.jpg?imageView2/2" slot="cover" />
+      <a-card-meta title="您的积分账户余额">
+        <template slot="description"> {{ points }} </template>
+      </a-card-meta>
+    </a-card>
 
-  <a-divider orientation="left">积分明细</a-divider>
-  <!-- <h1>积分明细</h1> -->
-  <!-- <p>积分明细</p> -->
-  <!-- <a-divider /> -->
+    <a-divider orientation="left">积分明细</a-divider>
 
-  <a-list
-    class="demo-loadmore-list"
-    :loading="loading"
-    itemLayout="horizontal"
-    :dataSource="data"
-  >
-    <div v-if="showLoadingMore" slot="loadMore" :style="{ textAlign: 'center', marginTop: '12px', height: '32px', lineHeight: '32px' }">
-      <a-spin v-if="loadingMore" />
-      <a-button v-else @click="onLoadMore">加载更多</a-button>
-    </div>
-    <a-list-item slot="renderItem">
-      <a slot="actions">详情</a>
-      <a-list-item-meta description="消费记录1"> -->
-      </a-list-item-meta>
-      <div>-1</div>
-    </a-list-item>
-  </a-list>
+    <a-list
+      class="demo-loadmore-list"
+      itemLayout="horizontal"
+      :dataSource="data"
+    >
+      <a-list-item slot="renderItem" slot-scope="item">
+        <a slot="actions">详情</a>
+        <a-list-item-meta :description="item.content"></a-list-item-meta>
+        <div class="tag">{{ item.fluc }}</div>
+      </a-list-item>
+    </a-list>
   </div>
 </template>
 
 <script>
-import reqwest from 'reqwest'
-const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo'
+import request from './../../utils/request'
 
 export default {
   name: 'Stream',
-  props: {
-    points: {
-      type: Number,
-      default: 0
-    }
-  },
   data () {
     return {
+      points: 600,
       loading: true,
-      loadingMore: false,
-      showLoadingMore: true,
-      data: []
+      loadingMore: true,
+      showLoadingMore: false,
+      data: [{
+          content: '完成安全里程10km',
+          fluc: 5
+        },
+        {
+          content: '获得乘客5星好评',
+          fluc: 2
+        },
+        {
+          content: '闯红灯1次',
+          fluc: -20
+        },
+        {
+          content: '获得乘客1星差评',
+          fluc: -5
+      }]
     }
   },
   methods: {
-    getData  (callback) {
-      reqwest({
-        url: fakeDataUrl,
-        type: 'json',
-        method: 'get',
-        contentType: 'application/json',
-        success: (res) => {
-          callback(res)
-        },
+    getPoints () {
+      request ({
+        url: '/api/deploy/point/34',
+        methods: 'get',
+        params: {}
+      }).then(response => {
+        this.points = Number(response.data.data)
       })
-    },
-    onLoadMore () {
-      this.loadingMore = true
-      this.getData((res) => {
-        this.data = this.data.concat(res.results)
-        this.loadingMore = false
-        this.$nextTick(() => {
-          window.dispatchEvent(new Event('resize'))
-        })
-      })
-    },
+    }
   },
   mounted () {
-    this.getData((res) => {
-      this.loading = false
-      this.data = res.results
+    // 从后台拉取积分值
+    this.getPoints()
+
+    // 调取localStorage存储的购买记录
+    let goodname = ['加油券', '洗车券', '红猪', '渔夫帽'],
+        prices = [100, 80, 50, 84]
+    let records = JSON.parse(localStorage.getItem('purchaseRecords'))
+    records.map(item=>{
+      this.data.unshift({
+        content: `购买${goodname[item.id-1]}*${item.num}`,
+        fluc: -1 * item.num * prices[item.id-1]
+      })
     })
   }
 }
