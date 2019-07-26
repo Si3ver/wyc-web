@@ -5,9 +5,12 @@ import App from './App.vue'
 import routes from './routes'
 import './assets/styles/reset.css'
 import 'ant-design-vue/dist/antd.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
 
+Vue.use(VueAwesomeSwiper)
 Vue.use(VueRouter)
 Vue.use(Antd)
 
