@@ -26,13 +26,13 @@
         },
         list: [{
           "id": "0001",
-          "imgUrl": "https://img1.qunarzz.com/qs/1809/64/62160a38d119c202.jpg"
+          "imgUrl": "https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg"
         },{
           "id": "0002",
-          "imgUrl": "https://img1.qunarzz.com/qs/1809/5f/475e7c25572cb602.jpg"
+          "imgUrl": "https://gw.alicdn.com/imgextra/i1/185/O1CN01o5BNhC1DEloiZMW4K_!!185-0-lubanu.jpg"
         },{
           "id": "0003",
-          "imgUrl": "https://img1.qunarzz.com/qs/1809/be/b9098e1abc8a1002.jpg"
+          "imgUrl": "https://gw.alicdn.com/imgextra/i3/38/O1CN01CnOGam1C9Ratl6XgN_!!38-0-lubanu.jpg"
         }]
       }
     },

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 import Antd from 'ant-design-vue'
 import App from './App.vue'
 import routes from './routes'
@@ -12,6 +13,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueRouter)
+Vue.use(Vuex)
 Vue.use(Antd)
 
 const router = new VueRouter({

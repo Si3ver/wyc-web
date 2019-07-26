@@ -9,7 +9,7 @@
         <span class="price">{{ good.price }} 积分</span>
       </div>
       <div class="select">
-        兑换数量: <a-input-number :min="1" :max="10" v-model="nums" />，需{{ nums * good.price }}分
+        兑换数量: <a-input-number :min="0" :max="10" v-model="nums" />，需{{ nums * good.price }}分
       </div>
       <a-button type="primary" class="exchange-btn" @click=handleOk :disabled="nums === 0">兑换</a-button>
     </div>

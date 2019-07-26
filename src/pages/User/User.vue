@@ -6,8 +6,12 @@
         <img src="./../../../static/user/avatar.jpg" alt="avatar">
       </div>
       <div class="detailinfo">
-        <div class="name">{{ userinfo.name }}</div>
-        <div class="tel">{{ userinfo.tel }}</div>
+        <div class="info-line1">
+          <span class="name">{{ userinfo.name }}&nbsp;&nbsp;</span>
+        </div>
+        <div class="info-line2">
+          <span class="tel">{{ userinfo.tel }}</span>
+        </div>
       </div>
       <div class="driverstars">
         <a-icon type="star" theme="filled" />
@@ -27,12 +31,16 @@
     <div class="other">
       <router-link to="/knapsack">
         <div class="knapack">
-          <div class="logo"></div>
+          <div class="logo">
+            <img src="./../../../static/user/pack.svg" alt="">
+          </div>
           我的背包
         </div>
       </router-link>
       <div class="rights">
-        <div class="logo"></div>
+        <div class="logo">
+          <img src="./../../../static/user/rights.svg" alt="">
+        </div>
         专属权益
       </div>
     </div>
@@ -62,6 +70,8 @@ export default {
   methods: {
     handleLogout () {
       this.$attrs.isLogin = false
+      // eslint-disable-next-line no-console
+      console.log("agc")
     }
   }
 }
@@ -82,6 +92,24 @@ export default {
         height: 100%;
         border-radius: 50%;
       }
+    }
+    .detailinfo {
+      width: 3rem;
+      .info-line1 {
+        line-height: 20px;
+        .name {
+          font-size: 24px;
+          font-weight: bolder;
+        }
+      }
+      .info-line2 {
+        .tel {
+          color: #ccc;
+        }
+      }
+    }
+    .driverstars {
+      width: 2rem;
     }
   }
   .points-box {
@@ -120,9 +148,12 @@ export default {
       justify-content: space-around;
       align-items: center;
       .logo {
-        background: green;
         width: .8rem;
         height: .8rem;
+        img {
+          width: .8rem;
+          height: .8rem;
+        }
       }
     }
   }

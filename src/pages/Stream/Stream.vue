@@ -6,7 +6,7 @@
   >
   <img
     alt="example"
-    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564727496&di=3951fd510cd420eb1cc927ce403abcf2&imgtype=jpg&er=1&src=http%3A%2F%2Fcdn.clm02.com%2Fgoez1.com%2F105187%2F105187_1.jpg"
+    src="https://image1.guazistatic.com/qn19072611035465662bf64819c468b74991a087832293.jpg?imageView2/2"
     slot="cover"
   />
   <a-card-meta
