@@ -20,12 +20,11 @@
 <script>
 export default {
   name: 'HomeHeader',
-  data () {
-    return {
-      points: 67432,
-    }
-  },
   props: {
+    points: {
+      type: Number,
+      default: 0
+    },
     isLogin: {
       type: Boolean,
       default: false

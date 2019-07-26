@@ -1,10 +1,9 @@
 <template>
   <div>
-    <home-header :isLogin="isLogin"></home-header>
-    <!-- <p>首页-积分商城页面~~~</p> -->
+    <home-header :points="points" :isLogin="isLogin"></home-header>
     <carrousel></carrousel>
     <div class="goods-pannel">
-      <good v-for="(good, idx) in goods" :key="idx"></good>
+      <good v-for="(good, idx) in goods" :key="idx" :good="good" :points="points" @consumePoints="consumePoints"></good>
     </div>
   </div>
 </template>
@@ -16,30 +15,44 @@ import Good from './components/Good'
 
 export default {
   name: 'Home',
-  data () {
-    return {
-      goods: [{
-        url: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        name: "星巴克5折券",
-        price: 20
-      },{
-        url: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        name: "加油8折券",
-        price: 30
-      }]
-    }
-  },
   components: {
     HomeHeader,
     Carrousel,
     Good,
   },
-  methods: {
-  },
   props: {
     isLogin: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      points: 12345,
+      goods: [{
+        url: "https:////img.alicdn.com/img/i2/117239780/O1CN01wyvtP22M7I21Zx3uI_!!0-saturn_solar.jpg_210x210.jpg",
+        name: "5折星巴克券",
+        price: 20
+      },{
+        url: "https:////gw3.alicdn.com/bao/uploaded/i3/2757349401/O1CN01AO7Gmg2JJhx7lbtU8_!!0-item_pic.jpg_210x210.jpg",
+        name: "8汽油券",
+        price: 30
+      },{
+        url: "https:////img.alicdn.com/img/i2/117239780/O1CN01wyvtP22M7I21Zx3uI_!!0-saturn_solar.jpg_210x210.jpg",
+        name: "5折星巴克券",
+        price: 20
+      },{
+        url: "https:////gw3.alicdn.com/bao/uploaded/i3/2757349401/O1CN01AO7Gmg2JJhx7lbtU8_!!0-item_pic.jpg_210x210.jpg",
+        name: "8汽油券",
+        price: 30
+      }]
+    }
+  },
+  methods: {
+    consumePoints (usedPoints) {
+      // eslint-disable-next-line no-console
+      console.log("fuzujian")
+      this.points = this.points - usedPoints
     }
   }
 }

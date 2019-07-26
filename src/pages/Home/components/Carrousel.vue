@@ -15,9 +15,13 @@
     data() {
       return {
         swiperOption: {
-          pagination: '.swiper-pagination',
-          paginationClickable: true,
-          autoplay: 1000,
+          pagination: {
+            el: '.swiper-pagination'
+          },
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+          },
           loop: true
         },
         list: [{
