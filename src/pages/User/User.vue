@@ -1,6 +1,6 @@
 <template >
   <div class="user-pannel">
-
+    <!-- <div class="pannel-title">司机信息</div> -->
     <div class="pannel1">
       <div class="avatar">
         <img src="./../../../static/user/avatar.jpg" alt="avatar">
@@ -20,6 +20,11 @@
         <a-icon type="star" />
         <a-icon type="star" />
       </div>
+    </div>
+
+    <div class="addr">
+      <div class="desc">司机链上地址:</div>
+      <div class="detail">0x70a619d4f301823d98c295a107b465644398a166</div>
     </div>
 
     <div class="points-box">
@@ -48,6 +53,9 @@
     <!-- <router-link to='/'>
       <a-button class="login-btn" @click=handleLogout>退出登录</a-button>
     </router-link> -->
+    <router-link to='/home'>
+      <div class="back">返回积分商城</div>
+    </router-link>
 
   </div>
 </template>
@@ -59,9 +67,9 @@ export default {
     return {
       points: 600,
       userinfo: {
-        name: "用户A",
-        tel: "17512341234",
-        lastLoginTime: '2019-07-25 16:45:09',
+        name: "Diran An",
+        tel: "13812345678",
+        lastLoginTime: '2019-07-27 21:35:09',
         stars: 4.5
       }
     }
@@ -93,6 +101,7 @@ export default {
 <style lang="less" scoped>
 .user-pannel {
   padding: .5rem;
+  
   .pannel1 {
     display: flex;
     justify-content: space-between;
@@ -125,6 +134,18 @@ export default {
       width: 2rem;
     }
   }
+
+  .addr {
+    margin-top: .2rem;
+    .desc {
+      font-size: 16px;
+    }
+    .detail {
+      font-size: 12px;
+      color: #aaa;
+    }
+  }
+
   .points-box {
     width: 6.5rem;
     height: 2.12rem;
@@ -170,11 +191,10 @@ export default {
       }
     }
   }
-  .login-btn {
-    color: #fff;
-    background-color:rgba(249, 127, 126, 1);
-    margin: 3% .2rem;
-    width: 94%;
+  .back {
+    width: 100%;
+    margin: 4px .2rem;
+    text-align: center;
   }
 }
 </style>

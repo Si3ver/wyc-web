@@ -26,6 +26,7 @@ module.exports = {
           if (req.headers.accept.indexOf('html') !== -1) {
             return '/index.html';
           } else if (process.env.MOCK !== "none" && req.path.indexOf('api') && req.path.split) {
+            // eslint-disable-next-line no-console
             console.log(req.path)
             const name = req.path.split('/api/')[1].split('/').join('_')
             const mock = require(`./mock/${name}`);

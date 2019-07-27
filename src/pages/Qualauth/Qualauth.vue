@@ -1,8 +1,6 @@
 <template>
   <div class="qual-pannel">
-  <!--<a-form
-      :form="form"
-      @submit="handleSubmit">-->
+  <div class="pannel-title">司机资质认证</div>
 
       <a-form-item
         label=""
@@ -70,23 +68,12 @@
               </a-button>
             </a-upload>
         <a-divider />
-
       </a-form-item>
 
-       <!-- 提交按钮 -->
-      <a-form-item
-        :wrapper-col="{ span: 12, offset: 5 }"
-      >
-        <a-button 
-          type="primary"
-          html-type="submit"
-          class="Quamit-btn"
-          @click="handleQualSubmit"
-        >
-          资质认证
-        </a-button>
-      </a-form-item>
-    <!--</a-form>-->
+      <a-button type="primary" html-type="submit" class="Quamit-btn" @click="handleQualSubmit">
+        认证
+      </a-button>
+
       <router-link to='/'>
         <div class="tologin">去登录</div>
       </router-link>
@@ -128,14 +115,23 @@ export default {
 
 <style lang="less" scoped>
 .qual-pannel {
-  padding: .1rem;
+  padding: 1%;
+  .pannel-title {
+    width: 98%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 0 2px #eee;
+  }
 }
 .ant-row{
   position: relative;
   margin-top: 30px;
   
   .ant-col-18{
-        width: 120%;
+        width: 98%;
       }
       .ant-row[data-v-39e0e5bb]{
             position: relative;
@@ -147,23 +143,21 @@ export default {
     }
     .ant-col-10{
         width: 18%;
-        padding-left: 4px;
+        padding-left: 0;
         padding-right: 4px;
     }
      .ant-col-11{
         width: 49%;
-        padding-left: 4px;
+        padding-left: 0;
         padding-right: 4px;
     }
- }
- .Quamit-btn{
+  }
+.Quamit-btn{
   color: #fff;
-    background-color:rgba(249, 127, 126, 1);
-    border-color: rgba(249, 127, 126, 1);
-    position: relative;
-    margin-left: -20px;
-    margin-top: 90px;
-    width: 70%;
+  background-color:rgba(249, 127, 126, 1);
+  border-color: rgba(249, 127, 126, 1);
+  margin: 3% .1rem;
+  width: 90%;
 }
 .tologin {
   // color: #fff;

@@ -1,7 +1,7 @@
 <template>
   <div class="regis-pannel">
-
-    <router-link to='/login'>
+    <!-- <div class="pannel-title">司机注册</div> -->
+    <router-link to='/'>
       <a-icon type="left" />
     </router-link>
 
@@ -126,6 +126,7 @@
               {rules: [{ required: true, message: '请输入密码' }]}
             ]"
             placeholder="请输入最少6位密码"
+            type="password"
           />
         </a-col>
       </a-form-item>
@@ -149,6 +150,7 @@
               {rules: [{ required: true, message: '请输入确认密码' }]}
             ]"
             placeholder="请再次输入密码以确认"
+            type="password"
           />
         </a-col>
       </a-form-item>
@@ -230,6 +232,15 @@ export default {
 <style lang="less" scoped>
   .regis-pannel {
     padding: .3rem;
+    .pannel-title {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 24px;
+      border-bottom: 1px solid #eee;
+      box-shadow: 0 0 2px #eee;
+    }
     .names{
       margin-top: .2rem;
     }
@@ -248,6 +259,7 @@ export default {
     .submit-btn {
       color: #fff;
       background-color:rgba(249, 127, 126, 1);
+      border-color: rgba(249, 127, 126, 1);
       width: 55%;
     }
   }

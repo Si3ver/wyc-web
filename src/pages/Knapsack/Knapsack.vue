@@ -1,6 +1,7 @@
 <template>
   <div class="knap-pannel">
-    <div v-if="goods.length >= 0">
+    <div class="pannel-title">背包</div>
+    <div v-if="purc.reduce((x,y)=>x+y, 0) > 0">
       <good-item
         v-for="(good, item) in goods"
         :key="item"
@@ -9,8 +10,8 @@
         :nums="purc[item]"
       ></good-item>
     </div>
-    <div v-else>
-      背包中无商品~
+    <div class="pannel-nocontent" v-else>
+      您的背包里没用物品哦~
     </div>
     <router-link to="/home" class="back">返回积分商城</router-link>
   </div>
@@ -64,6 +65,18 @@ export default {
 <style lang="less" scoped>
 .knap-pannel {
   width: 100%;
+  .pannel-title {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 0 2px #eee;
+  }
+  .pannel-nocontent {
+    padding: .2rem;
+  }
 }
 .back {
   width: 100%;

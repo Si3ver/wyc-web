@@ -1,15 +1,18 @@
 <template>
-  <div class="good-pannel">
+  <div class="good-pannel" :class="good.id===4 ? 'no-bottom' : ''">
     <div class="img">
       <img :src="good.url" alt="">
     </div>
     <div class="detail">
       <div class="title">
-        <span class="name">{{ good.name }}&nbsp;&nbsp;</span>
+        <span class="name">{{ good.name }}&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span class="price">{{ good.price }} 积分</span>
       </div>
       <div class="select">
-        兑换数量: <a-input-number :min="0" :max="10" v-model="nums" />，需{{ nums * good.price }}分
+        兑换数量: <a-input-number :min="0" :max="10" v-model="nums" />
+      </div>
+      <div class="consume">
+        需&nbsp;<span class="digit">{{ nums * good.price }}</span>&nbsp;积分
       </div>
       <a-button type="primary" class="exchange-btn" @click=handleOk :disabled="nums === 0">兑换</a-button>
     </div>
@@ -112,18 +115,35 @@ export default {
     }
   }
   .detail {
-    width: 4.6rem;
+    margin-left: .2rem;
+    width: 4.3rem;
+    // background: lightgoldenrodyellow;
     .title {
       .name {
         font-size: 20px;
+        font-weight: bolder;
       }
       .price {
         color: red;
       }
     }
+    .select {
+      margin-top: .2rem;
+      font-size: 16px;
+    }
+    .consume {
+      .digit {
+        color: red;
+      }
+    }
     .exchange-btn {
-      margin-left: 3rem;
+      // margin-left: 3rem;
+      float: right;
+      margin-top: -.5rem;
     }
   }
+}
+.no-bottom {
+  border-bottom: none;
 }
 </style>

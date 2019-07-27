@@ -2,20 +2,20 @@
   <div class="header">
     <div class="header-user">
       <router-link :to="this.target">
-        <a-icon type="user" />
-      </router-link>
-    </div>
-    <div class="header-points">
-      <router-link to='/stream'>
-        {{ points }} 积分
+        <a-icon type="user" class="userIcon" />
       </router-link>
     </div>
     <div class="header-input">
       <a-icon type="search" />
       请输入要搜索的商品
     </div>
+    <div class="header-points">
+      <router-link to='/stream'>
+        {{ points }} 积分
+      </router-link>
+    </div>
     <router-link to="/knapsack">
-      <a-icon type="shopping" />&nbsp;&nbsp;&nbsp;
+      <a-icon type="shopping" class="packIcon" />&nbsp;&nbsp;&nbsp;
     </router-link>
 
     
@@ -71,11 +71,16 @@ export default {
     flex: 1;
     height: .64rem;
     line-height: .64rem;
-    margin: .12rem .2rem .12rem 0;
+    margin: .12rem 0 .12rem .2rem;
     padding-left: .1rem;
     background: #fff;
     border-radius: .1rem;
     color: #ccc;
   }
 }
+
+// .userIcon svg, .packIcon svg {
+//   width: .3rem;
+//   height: .3rem;
+// }
 </style>

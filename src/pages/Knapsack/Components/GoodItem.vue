@@ -1,17 +1,15 @@
 <template>
+<div>
   <div class="good-pannel" v-if="nums">
     <div class="img">
       <img :src="img" alt="">
     </div>
     <div class="detail">
-      <div class="title">
-        <span class="name">{{ name }}&nbsp;&nbsp;</span>
-      </div>
-      <div class="title">
-        <span class="nums">数量: {{ nums }}</span>
-      </div>
+      <div class="name">{{ name }}&nbsp;&nbsp;</div>
+      <div class="nums">数量: <span class="digit">{{ nums }}</span></div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -49,7 +47,9 @@ export default {
   height: 2.6rem;
   margin: .2rem;
   padding: 12px 6px;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #eee;
+  border-radius: .3rem;
+  box-shadow: 10px 5px 5px #eee;
   display: flex;
   justify-content: space-between;
   align-items: top;
@@ -62,11 +62,16 @@ export default {
   }
   .detail {
     width: 4.6rem;
-    .title {
-      .name {
-        font-size: 20px;
-      }
-      .price {
+    margin-left: .3rem;
+    .name {
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    .nums {
+      font-size: 16px;
+      margin-top: .8rem;
+      margin-left: 3rem;
+      .digit {
         color: red;
       }
     }

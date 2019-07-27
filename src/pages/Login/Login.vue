@@ -1,6 +1,5 @@
 <template>
   <div class="login-pannel">
-
     <router-link to='/Home'>
       <div class="close-btn">
         <a-icon type="close" />
@@ -11,7 +10,7 @@
       <a-avatar :size="64" icon="user" />
     </div>
 
-    <div class="usertel-box">
+    <div class="usertel-box" style="margin-top:1rem;">
       <a-input placeholder="请输入您的手机号" v-model="usertel" ref="usertelInput"> 
         <a-icon slot="prefix" type="user" />
         <a-icon v-if="usertel" slot="suffix" type="close-circle" @click="emittelEmpty" />
@@ -31,7 +30,9 @@
       <router-link to="#">忘记密码</router-link> | 
       <router-link to="#">遇到问题</router-link>
     </div>
-
+    <div style="width: 100%;height:5rem;margin-top:.5rem;">
+      <img src='./../../../static/login/bg.png' style="width: 100%;height:100%;">
+    </div>
   </div>
 </template>
 
@@ -63,8 +64,12 @@ export default {
 <style lang="less" scoped>
 .login-pannel {
   // background: #efefef;
+  // background: url('./../../../static/login/bg.png');
+  // background: pink;
+  height: 13.5rem;
+  width: 100%;
   .close-btn {
-    margin-top: .5rem;
+    padding-top: .5rem;
     margin-left: .5rem;
   }
   .avatar {
@@ -73,7 +78,7 @@ export default {
   }
   .login-btn {
     color: #fff;
-    background-color:rgba(249, 127, 126, 1);
+    background-color:rgb(42, 83, 159);
     margin: 3% .2rem;
     width: 94%;
   }
