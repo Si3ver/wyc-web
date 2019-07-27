@@ -64,8 +64,8 @@ export default {
         bodyFormData.set('num', this.nums)
         axios({
           method: 'post',
-          url: 'http://193.112.151.166:8080/api/driver/item',
-          // url: '/api/driver/item',
+          // url: 'http://193.112.151.166:8080/api/driver/item',
+          url: '/api/driver/item',
           config: { headers: {'Content-Type': 'multipart/form-data' }},
           data: bodyFormData
         })
