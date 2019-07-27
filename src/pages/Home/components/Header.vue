@@ -14,6 +14,9 @@
       <a-icon type="search" />
       请输入要搜索的商品
     </div>
+    <router-link to="/login">
+      登录&nbsp;&nbsp;&nbsp;
+    </router-link>
   </div>
 </template>
 

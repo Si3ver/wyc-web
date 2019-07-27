@@ -2,7 +2,7 @@ function point() {
   return {
     "ret": true,
     "msg": null,
-    "data": "182"
+    "data": "686"
   }
 }
 
