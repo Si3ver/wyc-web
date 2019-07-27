@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>资质认证</h1>
-  
+  <div class="qual-pannel">
   <!--<a-form
       :form="form"
       @submit="handleSubmit">-->
@@ -89,6 +87,9 @@
         </a-button>
       </a-form-item>
     <!--</a-form>-->
+      <router-link to='/'>
+        <div class="tologin">去登录</div>
+      </router-link>
     </div>
 </template>
 
@@ -115,7 +116,7 @@ export default {
       }
     },
     handleQualSubmit () {
-      this.$message.success('提交成功!等待3~5个工作日完成认证');
+      this.$message.success('提交成功!等待5个工作日完成认证');
       // this.$router.push('/')
       // console.log("submit")
     }
@@ -126,6 +127,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.qual-pannel {
+  padding: .1rem;
+}
 .ant-row{
   position: relative;
   margin-top: 30px;
@@ -161,6 +165,11 @@ export default {
     margin-top: 90px;
     width: 70%;
 }
-
-
+.tologin {
+  // color: #fff;
+  // background-color:rgba(249, 127, 126, 1);
+  margin: 4px .2rem;
+  text-align: center;
+  // width: 49%;
+}
 </style>

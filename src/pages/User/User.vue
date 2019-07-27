@@ -29,14 +29,14 @@
     </div>
 
     <div class="other">
-      <router-link to="/knapsack">
+      <!-- <router-link to="/knapsack"> -->
         <div class="knapack">
           <div class="logo">
             <img src="./../../../static/user/pack.svg" alt="">
           </div>
           我的背包
         </div>
-      </router-link>
+      <!-- </router-link> -->
       <div class="rights">
         <div class="logo">
           <img src="./../../../static/user/rights.svg" alt="">

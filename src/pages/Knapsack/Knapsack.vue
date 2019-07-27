@@ -12,7 +12,7 @@
     <div v-else>
       背包中无商品~
     </div>
-    <router-link to="/">返回积分商城</router-link>
+    <router-link to="/home" class="back">返回积分商城</router-link>
   </div>
 </template>
 
@@ -62,4 +62,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.knap-pannel {
+  width: 100%;
+}
+.back {
+  width: 100%;
+  margin: 4px .2rem;
+  text-align: center;
+}
 </style>

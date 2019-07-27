@@ -18,9 +18,14 @@
       <a-list-item slot="renderItem" slot-scope="item">
         <a slot="actions">详情</a>
         <a-list-item-meta :description="item.content"></a-list-item-meta>
-        <div class="tag">{{ item.fluc }}</div>
+        <div :class="item.fluc>0 ? 'green' : 'red'">{{ item.fluc }}</div>
       </a-list-item>
     </a-list>
+
+    <router-link to='/home'>
+      <div class="back">返回积分商城</div>
+    </router-link>
+
   </div>
 </template>
 
@@ -71,7 +76,9 @@ export default {
     // 调取localStorage存储的购买记录
     let goodname = ['加油券', '洗车券', '红猪', '渔夫帽'],
         prices = [100, 80, 50, 84]
-    let records = JSON.parse(localStorage.getItem('purchaseRecords'))
+    let json = localStorage.getItem('purchaseRecords')
+    let paseContent = json ? json : '[]'
+    let records = JSON.parse(paseContent)
     records.map(item=>{
       this.data.unshift({
         content: `购买${goodname[item.id-1]}*${item.num}`,
@@ -85,5 +92,15 @@ export default {
 <style scoped>
 .demo-loadmore-list {
   padding: .2rem;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.back {
+  margin: 4px .2rem;
+  text-align: center;
 }
 </style>

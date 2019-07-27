@@ -67,6 +67,11 @@ export default {
       })
     }
   },
+  mount () {
+    localStorage.setItem('hasLogin', true)
+    localStorage.setItem('purchasedGoods', '0,0,0,0')
+    localStorage.setItem('purchaseRecords', '[]')
+  },
   mounted () {
     this.getPoints()
   }

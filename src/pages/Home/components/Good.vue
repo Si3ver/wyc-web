@@ -57,11 +57,20 @@ export default {
         // }).then(response => {
         //   this.points = Number(response.data.data)
         // })
-        axios.post('/api/driver/item', {
-          driverId: 3,
-          itemId: this.good.id,
-          num: this.nums
+
+        var bodyFormData = new FormData()
+        bodyFormData.set('driverId', 3)
+        bodyFormData.set('itemId', this.good.id)
+        bodyFormData.set('num', this.nums)
+        axios({
+          method: 'post',
+          url: 'http://193.112.151.166:8080/api/driver/item',
+          // url: '/api/driver/item',
+          config: { headers: {'Content-Type': 'multipart/form-data' }},
+          data: bodyFormData
         })
+
+
 
         // 增加背包中的商品数量
         let purc = localStorage.getItem('purchasedGoods').split(',').map(item=>Number(item))

@@ -9,7 +9,7 @@ import Knapsack from './pages/Knapsack/Knapsack'
 
 const routes = [
   {
-    path: '/',
+    path: '/Home',
     name: 'Home',
     component: Home
   },
@@ -19,7 +19,7 @@ const routes = [
     component: Stream
   },
   {
-    path: '/login',
+    path: '/',
     name: 'Login',
     component: Login
   },

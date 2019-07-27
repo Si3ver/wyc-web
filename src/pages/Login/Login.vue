@@ -1,7 +1,7 @@
 <template>
   <div class="login-pannel">
 
-    <router-link to='/'>
+    <router-link to='/Home'>
       <div class="close-btn">
         <a-icon type="close" />
       </div>
@@ -22,7 +22,7 @@
       </a-input>
     </div>
 
-    <router-link to='/'>
+    <router-link to='/Home'>
       <a-button class="login-btn" @click=handleLogin>登录</a-button>
     </router-link>
 

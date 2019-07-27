@@ -51,7 +51,7 @@
   .wrapper{
     overflow: hidden;
     width: 100%;
-    height: 0;
+    height: 2.2rem;
     padding-bottom: 25.6%;
     background: #eee;
     .swiper-img {
